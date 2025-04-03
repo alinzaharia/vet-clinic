@@ -15,12 +15,10 @@ const nextConfig = {
   },
   images: {
     unoptimized: true, // Required for static export if using the Next.js Image component
-    loader: "imgix",
-    path: "/vet-clinic/"
   },
   output: 'export', // Enables static export for GitHub Pages
-  basePath: "/vet-clinic", // Required for GitHub Pages deployment
-  assetPrefix: "/vet-clinic/", // Ensures static assets load correctly
+  // basePath: "/vet-clinic", // Required for GitHub Pages deployment
+  // assetPrefix: "/vet-clinic/", // Ensures static assets load correctly
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
