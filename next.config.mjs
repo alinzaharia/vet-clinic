@@ -17,6 +17,8 @@ const nextConfig = {
     unoptimized: true, // Required for static export if using the Next.js Image component
   },
   output: 'export', // Enables static export for GitHub Pages
+  basePath: "/vet-clinic", // Required for GitHub Pages deployment
+  assetPrefix: "/vet-clinic/", // Ensures static assets load correctly
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
