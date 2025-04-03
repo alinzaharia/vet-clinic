@@ -15,17 +15,16 @@ export default function ConfirmationPage() {
         <div className="flex justify-center mb-6">
           <CheckCircle className="h-16 w-16 text-emerald-500" />
         </div>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Appointment Request Received</h1>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Am primit cererea de programare</h1>
         <p className="mt-6 text-lg text-muted-foreground">
-          Thank you for requesting an appointment with PetCare Veterinary Clinic. We've received your information and
-          will contact you shortly to confirm your appointment details.
+        Mulțumim că ați solicitat o programare la BB Veterinary. Am primit informațiile dumneavoastră și vă vom contacta în curând pentru a confirma detaliile programării.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Button asChild>
-            <Link href="/">Return to Home</Link>
+            <Link href="/">Inapoi</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/services">Our Services</Link>
+            <Link href="/services">Servicii</Link>
           </Button>
         </div>
       </div>

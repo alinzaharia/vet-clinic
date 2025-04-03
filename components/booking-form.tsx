@@ -20,28 +20,28 @@ import { cn } from "@/lib/utils"
 
 const formSchema = z.object({
   ownerName: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Numele trebuie sa contina minim 2 caractere.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Introduceti o adresa de email valida.",
   }),
   phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
+    message: "Introduceti un numar de telefon valid.",
   }),
   petName: z.string().min(1, {
-    message: "Pet name is required.",
+    message: "Numele animalului este necesar.",
   }),
   petType: z.string().min(1, {
-    message: "Please select a pet type.",
+    message: "Alegeti specia",
   }),
   petAge: z.string().min(1, {
-    message: "Pet age is required.",
+    message: "Varsta animalului este necesara.",
   }),
   appointmentDate: z.date({
-    required_error: "Please select a date.",
+    required_error: "Alegeti o data",
   }),
   appointmentType: z.string({
-    required_error: "Please select an appointment type.",
+    required_error: "Alegeti tipul programarii",
   }),
   message: z.string().optional(),
 })
@@ -76,8 +76,8 @@ export default function BookingForm() {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       toast({
-        title: "Appointment Request Submitted",
-        description: "We'll contact you shortly to confirm your appointment.",
+        title: "Cererea dumneavoastra a fost primita",
+        description: "Va vom contacta in curand sa confirmam programarea.",
       })
 
       // Reset form
@@ -87,8 +87,8 @@ export default function BookingForm() {
       router.push("/booking/confirmation")
     } catch (error) {
       toast({
-        title: "Something went wrong",
-        description: "Your appointment request failed to submit. Please try again.",
+        title: "Ceva nu a mers",
+        description: "NU am reusit sa primim formularul dumneavoastra. Incercati din nou mai tarziu.",
         variant: "destructive",
       })
     } finally {
@@ -105,9 +105,9 @@ export default function BookingForm() {
             name="ownerName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Your Name</FormLabel>
+                <FormLabel>Nume</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Stapanul lui Grivei" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -135,7 +135,7 @@ export default function BookingForm() {
               <FormItem>
                 <FormLabel>Phone Number</FormLabel>
                 <FormControl>
-                  <Input placeholder="(555) 123-4567" {...field} />
+                  <Input placeholder="+40 743 123 456" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -147,9 +147,9 @@ export default function BookingForm() {
             name="petName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Pet's Name</FormLabel>
+                <FormLabel>Numele animalului</FormLabel>
                 <FormControl>
-                  <Input placeholder="Fluffy" {...field} />
+                  <Input placeholder="Grivei" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -161,19 +161,17 @@ export default function BookingForm() {
             name="petType"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Pet Type</FormLabel>
+                <FormLabel>Specie</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select pet type" />
+                      <SelectValue placeholder="Selectati specia animalutului dumneavoastra" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="dog">Dog</SelectItem>
-                    <SelectItem value="cat">Cat</SelectItem>
-                    <SelectItem value="bird">Bird</SelectItem>
-                    <SelectItem value="small_mammal">Small Mammal</SelectItem>
-                    <SelectItem value="reptile">Reptile</SelectItem>
+                    <SelectItem value="dog">Caine</SelectItem>
+                    <SelectItem value="cat">Pisica</SelectItem>
+                    <SelectItem value="bird">Pasare</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
@@ -187,9 +185,9 @@ export default function BookingForm() {
             name="petAge"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Pet's Age</FormLabel>
+                <FormLabel>Varsta animalului</FormLabel>
                 <FormControl>
-                  <Input placeholder="2 years" {...field} />
+                  <Input placeholder="2 ani" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -201,7 +199,7 @@ export default function BookingForm() {
             name="appointmentDate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>Appointment Date</FormLabel>
+                <FormLabel>Data</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -209,7 +207,7 @@ export default function BookingForm() {
                         variant={"outline"}
                         className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
                       >
-                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                        {field.value ? format(field.value, "PPP") : <span>Alegeti o data</span>}
                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                       </Button>
                     </FormControl>
@@ -239,20 +237,19 @@ export default function BookingForm() {
             name="appointmentType"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Appointment Type</FormLabel>
+                <FormLabel>Tipul programarii</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select appointment type" />
+                      <SelectValue placeholder="Selectati scopul vizitei" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="wellness">Wellness Exam</SelectItem>
-                    <SelectItem value="vaccination">Vaccination</SelectItem>
-                    <SelectItem value="illness">Sick Visit</SelectItem>
-                    <SelectItem value="injury">Injury Treatment</SelectItem>
-                    <SelectItem value="dental">Dental Care</SelectItem>
-                    <SelectItem value="surgery">Surgery Consultation</SelectItem>
+                    <SelectItem value="consult">Consult</SelectItem>
+                    <SelectItem value="control">Control periodic</SelectItem>
+                    <SelectItem value="vaccination">Vaccinare</SelectItem>
+                    <SelectItem value="illness">Deparazitare</SelectItem>
+                    <SelectItem value="treatment">Tratament</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
@@ -267,15 +264,15 @@ export default function BookingForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Additional Information</FormLabel>
+              <FormLabel>Informatii aditionale</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Please share any additional details about your pet's condition or your appointment request."
+                  placeholder="Adaugati orice informatii extre despre starea pacientului."
                   className="min-h-[120px]"
                   {...field}
                 />
               </FormControl>
-              <FormDescription>Include any symptoms, concerns, or special requirements.</FormDescription>
+              <FormDescription>Aici puteti adauga orice simptome, ingrijorari sau cerinte speciale.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -285,10 +282,10 @@ export default function BookingForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Submitting...
+              Se trimite
             </>
           ) : (
-            "Request Appointment"
+            "Cere o programare"
           )}
         </Button>
       </form>

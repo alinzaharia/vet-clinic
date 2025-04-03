@@ -46,16 +46,16 @@ export default function Home() {
             <p className="mt-6 text-lg leading-8 text-white">{homePage.hero.description}</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6">
               <Button asChild size="lg" className="bg-white text-emerald-600 hover:bg-gray-100 w-full sm:w-auto">
-                <Link href="/booking">Book an Appointment</Link>
+                <Link href="/booking">Fă o programare</Link>
               </Button>
-              <Button
+              {/* <Button
                 asChild
                 variant="outline"
                 size="lg"
                 className="text-white border-white hover:bg-white/10 w-full sm:w-auto"
               >
-                <Link href="/services">Our Services</Link>
-              </Button>
+                <Link href="/services">Servicii</Link>
+              </Button> */}
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function Home() {
           </div>
           <div className="mt-10 text-center">
             <Button asChild variant="outline" className="text-emerald-600">
-              <Link href="/services">View All Services</Link>
+              <Link href="/services">Vezi si alte servicii</Link>
             </Button>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function Home() {
             <p className="mt-4 text-lg text-emerald-100">{homePage.cta.description}</p>
             <div className="mt-8">
               <Button asChild size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
-                <Link href="/booking">Book an Appointment</Link>
+                <Link href="/booking">Fă o programare</Link>
               </Button>
             </div>
           </div>

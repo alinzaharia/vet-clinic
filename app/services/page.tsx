@@ -16,7 +16,7 @@ import {
   Rabbit,
   Bird,
 } from "lucide-react"
-import { servicesPage } from "@/lib/content"
+import { homePage, servicesPage } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -91,15 +91,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Species-Specific Care */}
-      <section className="bg-muted py-12 md:py-20">
+      {/* <section className="bg-muted py-12 md:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            {/* Using content from servicesPage.speciesSpecific */}
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{servicesPage.speciesSpecific.title}</h2>
             <p className="mt-4 text-muted-foreground">{servicesPage.speciesSpecific.description}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {/* Map through species */}
+            {Map through species }
             {servicesPage.speciesSpecific.species.map((species, index) => (
               <div key={index} className="bg-background rounded-lg p-6 text-center">
                 <div className="flex justify-center mb-4">{getIcon(species.icon)}</div>
@@ -109,19 +108,39 @@ export default function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      {/* Species-Specific Care */}
+<section className="bg-muted py-12 md:py-20">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto max-w-2xl text-center mb-12">
+      {/* Using content from servicesPage.speciesSpecific */}
+      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{servicesPage.speciesSpecific.title}</h2>
+      <p className="mt-4 text-muted-foreground">{servicesPage.speciesSpecific.description}</p>
+    </div>
+    <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
+      {/* Map through species */}
+      {servicesPage.speciesSpecific.species.map((species, index) => (
+        <div key={index} className="bg-background rounded-lg p-6 text-center">
+          <div className="flex justify-center mb-4">{getIcon(species.icon)}</div>
+          <h3 className="text-lg font-semibold mb-2">{species.name}</h3>
+          <p className="text-sm text-muted-foreground">{species.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA */}
       <section className="bg-emerald-600 py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">Ready to schedule a visit?</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{homePage.cta.title}</h2>
             <p className="mt-4 text-lg text-emerald-100">
-              Book an appointment today and give your pet the care they deserve.
+            {homePage.cta.description}
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
-                <Link href="/booking">Book an Appointment</Link>
+                <Link href="/booking">Fă o programare</Link>
               </Button>
             </div>
           </div>

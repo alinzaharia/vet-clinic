@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from "lucide-react"
 import ContactForm from "@/components/contact-form"
 import GoogleMap from "@/components/google-map"
-import { contactPage, siteInfo } from "@/lib/content"
+import { contactPage, homePage, siteInfo } from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -50,7 +50,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-xs text-emerald-600 hover:underline mt-2 inline-block"
                     >
-                      View on Map
+                      Vezi pe harta
                     </Link>
                   </CardContent>
                 </Card>
@@ -61,8 +61,8 @@ export default function ContactPage() {
                   </CardHeader>
                   <CardContent>
                     {/* Using content from siteInfo */}
-                    <p className="text-sm text-muted-foreground">{siteInfo.phone}</p>
-                    <p className="text-sm text-muted-foreground">{siteInfo.emergencyPhone}</p>
+                    <p className="text-sm text-muted-foreground"><Link href={`tel:${siteInfo.phone}`} className="hover:text-primary">{siteInfo.phone}</Link></p>
+                    <p className="text-sm text-muted-foreground"><Link href={`tel:${siteInfo.phone}`} className="hover:text-primary">{siteInfo.emergencyPhone}</Link></p>
                     <p className="text-xs text-muted-foreground mt-1">
                       Asteptam telefoanele dumneavoastra si in afara programului pentru urgente.
                     </p>
@@ -99,18 +99,18 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   {/* Using content from siteInfo */}
-                  <Link href={siteInfo.socialMedia.facebook} className="text-muted-foreground hover:text-emerald-500">
+                  {/* <Link href={siteInfo.socialMedia.facebook} className="text-muted-foreground hover:text-emerald-500">
                     <Facebook className="h-6 w-6" />
                     <span className="sr-only">Facebook</span>
-                  </Link>
+                  </Link> */}
                   <Link href={siteInfo.socialMedia.instagram} className="text-muted-foreground hover:text-emerald-500">
                     <Instagram className="h-6 w-6" />
                     <span className="sr-only">Instagram</span>
                   </Link>
-                  <Link href={siteInfo.socialMedia.twitter} className="text-muted-foreground hover:text-emerald-500">
+                  {/* <Link href={siteInfo.socialMedia.twitter} className="text-muted-foreground hover:text-emerald-500">
                     <Twitter className="h-6 w-6" />
                     <span className="sr-only">Twitter</span>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 md:py-20">
+      <section id="faq" className="py-12 md:py-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-12">
             {/* Using content from contactPage.faq */}
@@ -184,13 +184,13 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Using content from homePage.cta */}
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{contactPage.hero.title}</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">{homePage.cta.title}</h2>
             <p className="mt-4 text-lg text-emerald-100">
-              Book an appointment today and give your pet the care they deserve.
+              {homePage.cta.description}
             </p>
             <div className="mt-8">
               <Button asChild size="lg" className="bg-white text-emerald-600 hover:bg-gray-100">
-                <Link href="/booking">Book an Appointment</Link>
+                <Link href="/booking">Fă o programare</Link>
               </Button>
             </div>
           </div>

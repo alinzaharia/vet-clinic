@@ -10,23 +10,23 @@ export const siteInfo = {
   email: "bbveterinary@gmail.com",
   hours: {
     weekdays: "Luni - Vineri: 10:00 - 20:00",
-    saturday: "Saturday: 10:00 - 16:00",
-    sunday: "Sunday: 10:00 - 14:00",
+    saturday: "Sambata: 10:00 - 16:00",
+    sunday: "Duminica: 10:00 - 14:00",
   },
   foundedYear: 2005,
   socialMedia: {
     facebook: "https://facebook.com/petcarevet",
-    instagram: "https://instagram.com/petcarevet",
+    instagram: "https://instagram.com/bb.veterinary",
     twitter: "https://twitter.com/petcarevet",
   },
 }
 
 export const navigation = [
   { name: "Acasa", href: "/" },
-  { name: "Despre noi", href: "/about" },
+  //{ name: "Despre noi", href: "/about" },
   { name: "Servicii", href: "/services" },
-  { name: "Echipa", href: "/team" },
-  { name: "Blog", href: "/blog" },
+  //{ name: "Echipa", href: "/team" },
+  //{ name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -37,116 +37,116 @@ export const homePage = {
       "La BB Veterinary, fiecare animal primește atenția și grija pe care o merită. Ne dedicăm sănătății și bunăstării companionului tău prin servicii veterinare atente, profesionale și pline de empatie. Pentru noi, fiecare pacient este unic, iar îngrijirea lor este mai mult decât o misiune – este pasiunea noastră.",
   },
   services: {
-    title: "Our Veterinary Services",
-    description: "Comprehensive care for all your pet's health needs",
+    title: "Serviciile noastre",
+    description: "Îngrijire completă pentru toate nevoile de sănătate ale animalului tău.",
     items: [
       {
         icon: "Stethoscope",
-        title: "Wellness Exams",
-        description: "Regular check-ups to keep your pet healthy",
+        title: "Examinări de sănătate",
+        description: "Control medical regulat pentru a menține sănătatea animalului tău",
         content:
-          "Comprehensive physical examinations, vaccinations, and preventative care to ensure your pet's long-term health.",
+          "Examinări fizice complete și îngrijire preventivă pentru a asigura sănătatea pe termen lung a companionului tău.",
       },
       {
         icon: "Syringe",
-        title: "Vaccinations",
-        description: "Protection against common diseases",
-        content: "Age-appropriate vaccines to protect your pet from preventable diseases and maintain their health.",
+        title: "Vaccinare",
+        description: "Protecție împotriva bolilor virale comune",
+        content: "Vaccinuri adecvate vârstei pentru a proteja animalul tău de boli virale prevenibile și pentru a-i menține sănătatea.",
       },
       {
         icon: "Microscope",
-        title: "Diagnostic Services",
-        description: "Advanced testing and imaging",
+        title: "Servicii de Diagnostic",
+        description: "Teste de laborator precise pentru diagnostic rapid",
         content:
-          "State-of-the-art laboratory testing, digital X-rays, and ultrasound to diagnose your pet's condition accurately.",
+          "Teste de laborator precise, inclusiv biochimie, hemoleucogramă și analize la microscop, pentru a diagnostica rapid și corect starea de sănătate a animalului tău.",
       },
     ],
   },
   whyChooseUs: {
-    title: "Why Choose PetCare",
-    description: "We're committed to providing exceptional care for your beloved pets",
+    title: "De ce să alegi BB Veterinary",
+    description: "Suntem dedicați să oferim îngrijire excepțională pentru animalele tale dragi.",
     items: [
       {
         icon: "Heart",
-        title: "Compassionate Care",
-        description: "We treat every pet with the love and attention they deserve, just like they're our own.",
+        title: "Îngrijire cu compasiune",
+        description: "Tratăm fiecare animal cu dragostea și atenția pe care o merită, exact ca și cum ar fi al nostru.",
       },
       {
         icon: "Award",
-        title: "Experienced Team",
+        title: "Echipa cu experiență",
         description:
-          "Our veterinarians and staff have years of experience and ongoing education in the latest techniques.",
+          "Medicii noștri veterinari și personalul au ani de experiență și educație continuă în cele mai noi tehnici veterinare.",
       },
       {
         icon: "Clock",
-        title: "Convenient Hours",
-        description: "We offer flexible appointment times to accommodate your busy schedule.",
+        title: "Program Flexibil",
+        description: "Oferim intervale orare flexibile pentru programări, pentru a se potrivi cu programul tău încărcat. În plus, suntem disponibili la orice oră pentru urgențe, asigurându-ne că animalul tău primește îngrijirea necesară chiar și în momentele critice.",
       },
     ],
   },
   testimonials: {
-    title: "What Our Clients Say",
-    description: "Hear from pet owners who trust us with their beloved companions",
+    title: "Ce spun clienții noștri",
+    description: "Ascultă părerile proprietarilor de animale care au încredere în noi pentru îngrijirea companionilor lor dragi.",
     items: [
       {
-        text: "Dr. Smith and the entire team at PetCare have been taking care of our dog Max for years. They're always thorough, kind, and make both of us feel comfortable. I wouldn't trust anyone else with Max's health!",
-        name: "Sarah Johnson",
-        role: "Dog owner",
+        text: "Foarte misto omuleții ❤️foarte drăgălași și super profi. Mi-a plăcut faptul ca pentru orice curiozitate și nevoie au fost alături de mine și Costeluș(motanul nostru). Acum Costeluș are și el un medic de familie 🧡",
+        name: "Irina",
+        role: "Proprietar de pisica",
       },
       {
-        text: "When our cat Whiskers needed emergency surgery, the team at PetCare was amazing. They explained everything clearly, performed the procedure quickly, and followed up to make sure she was recovering well. We're forever grateful!",
-        name: "Michael Thompson",
-        role: "Cat owner",
+        text: "Cele mai bune servicii veterinare. Domnii doctori sunt foarte bine pregătiți, sunt mai mult decât meseria dumnealor, sunt cu adevărat îngerii necuvântătoarelor. Ii apreciez cu toată fiinta mea!",
+        name: "Florentina",
+        role: "Proprietar de catei si pisici",
       },
     ],
   },
   cta: {
-    title: "Ready to schedule a visit?",
-    description: "Book an appointment today and give your pet the care they deserve.",
+    title: "Pregătești o vizită?",
+    description: "Programează o consultație astăzi și oferă-i animalului tău îngrijirea pe care o merită.",
   },
 }
 
 export const contactPage = {
   hero: {
-    title: "Contact Us",
-    description: "We're here to help with all your pet care needs",
+    title: "Contactează-ne",
+    description: "Suntem aici pentru a te ajuta cu toate nevoile de îngrijire ale animalului tău.",
   },
   getInTouch: {
-    title: "Get in Touch",
+    title: "Ia legătura cu noi",
     description:
-      "Have questions about our services or need to schedule an appointment? Contact us using the information below or fill out the form, and we'll get back to you as soon as possible.",
+      "Ai întrebări despre serviciile noastre sau vrei să programezi o consultație? Contactează-ne folosind informațiile de mai jos sau completează formularul, iar noi îți vom răspunde cât mai curând posibil.",
   },
   contactForm: {
-    title: "Send Us a Message",
-    description: "Fill out the form below and we'll get back to you as soon as possible",
+    title: "Trimite-ne un mesaj",
+    description: "Completează formularul de mai jos și îți vom răspunde cât mai curând posibil.",
   },
   map: {
-    title: "Find Us",
-    description: "We're conveniently located in the heart of Animalville",
+    title: "Locatia",
+    description: "Ne găsești pe Șoseaua Fundeni, nr. 168, sector 2, București.",
   },
   faq: {
-    title: "Frequently Asked Questions",
-    description: "Find answers to common questions about our services",
+    title: "Întrebări frecvente",
+    description: "Găsește răspunsuri la întrebările comune despre serviciile noastre.",
     items: [
       {
-        question: "Do you offer emergency services?",
+        question: "Oferiți servicii de urgență?",
         answer:
-          "We provide emergency care during our regular business hours. For after-hours emergencies, we recommend contacting our emergency line at (555) 987-6543 or visiting the 24-hour Animal Emergency Hospital at 456 Emergency Lane.",
+          "Oferim îngrijire de urgență în timpul programului nostru de lucru. Pentru urgențe în afara orelor de program, recomandăm să contactați numerele afișate.",
       },
       {
-        question: "How do I schedule an appointment?",
+        question: "Cum pot programa o consultație?",
         answer:
-          "You can schedule an appointment by calling our office, using our online booking form, or sending us an email. We'll respond as quickly as possible to confirm your appointment time.",
+          "Poți programa o consultație sunând la biroul nostru, folosind formularul nostru de programare online sau trimițându-ne un email. Vom răspunde cât mai repede posibil pentru a confirma ora programării tale.",
       },
       {
-        question: "What payment methods do you accept?",
+        question: "Ce metode de plată acceptați?",
         answer:
-          "We accept cash, credit cards (Visa, MasterCard, American Express, Discover), debit cards, and pet insurance. We also offer CareCredit as a financing option for eligible clients.",
+          "Acceptăm numerar, carduri de credit (Visa, MasterCard, American Express, Discover).",
       },
       {
-        question: "Do you offer house calls?",
+        question: "Oferiți consultații la domiciliu?",
         answer:
-          "Yes, we offer limited house calls for special circumstances. Please contact our office to discuss your needs and to check availability for this service.",
+          "Da, oferim consultații la domiciliu în circumstanțe speciale. Te rugăm să contactezi biroul nostru pentru a discuta nevoile tale și pentru a verifica disponibilitatea acestui serviciu.",
       },
     ],
   },
@@ -154,92 +154,75 @@ export const contactPage = {
 
 export const servicesPage = {
   hero: {
-    title: "Our Veterinary Services",
-    description: "Comprehensive care for all your pet's health needs",
+    title: "Serviciile noastre veterinare",
+    description: "Îngrijire completă pentru toate nevoile de sănătate ale animalului tău.",
   },
   services: [
     {
       icon: "Stethoscope",
-      title: "Wellness Exams",
-      description: "Regular check-ups to keep your pet healthy",
+      title: "Examinări de sănătate",
+      description: "Control medical regulat pentru a menține sănătatea animalului tău",
       content:
-        "Comprehensive physical examinations, vaccinations, and preventative care to ensure your pet's long-term health. We recommend annual wellness exams for adult pets and semi-annual exams for senior pets.",
+        "Examinări fizice complete, imunizări și îngrijire preventivă pentru a asigura sănătatea pe termen lung a companionului tău. Recomandăm examene anuale pentru animalele adulte și examene semestriale pentru animalele senior.",
     },
     {
       icon: "Syringe",
-      title: "Vaccinations",
-      description: "Protection against common diseases",
+      title: "Vaccinare",
+      description: "Protecție împotriva bolilor virale comune",
       content:
-        "Age-appropriate vaccines to protect your pet from preventable diseases. We create customized vaccination schedules based on your pet's lifestyle, risk factors, and health status.",
+        "Vaccinuri adecvate vârstei pentru a proteja animalul tău de boli virale prevenibile. Creăm programe de vaccinare personalizate în funcție de stilul de viață, factorii de risc și starea de sănătate a companionului tău.",
     },
     {
       icon: "Microscope",
-      title: "Diagnostic Services",
-      description: "Advanced testing and imaging",
+      title: "Servicii de Diagnostic",
+      description: "Teste de laborator precise pentru diagnostic rapid",
       content:
-        "State-of-the-art laboratory testing, digital X-rays, and ultrasound to diagnose your pet's condition accurately. Our in-house lab provides quick results for many common tests.",
+        "Teste de laborator precise, inclusiv biochimie, hemoleucogramă și analize la microscop, pentru a diagnostica rapid și corect starea de sănătate a animalului tău.",
     },
     {
       icon: "Scissors",
-      title: "Surgical Services",
-      description: "From routine to advanced procedures",
+      title: "Servicii Chirurgicale",
+      description: "De la proceduri de rutină la intervenții avansate",
       content:
-        "Comprehensive surgical care including spay/neuter, soft tissue surgery, and orthopedic procedures. We use the latest techniques and monitoring equipment to ensure your pet's safety.",
+        "Îngrijire chirurgicală completă, inclusiv sterilizare/castrare, chirurgie a țesuturilor moi și proceduri ortopedice. Folosim cele mai noi tehnici și echipamente de monitorizare pentru a asigura siguranța animalului tău.",
     },
     {
       icon: "Tooth",
-      title: "Dental Care",
-      description: "Maintaining oral health",
+      title: "Îngrijire Dentară",
+      description: "Menținerea sănătății orale",
       content:
-        "Professional dental cleanings, digital dental X-rays, extractions, and oral surgery to keep your pet's teeth and gums healthy. We also provide guidance on home dental care.",
+        "Curățări dentare profesionale, extracții și chirurgie orală pentru a menține dinții și gingiile animalului tău sănătoase. Oferim și recomandări pentru îngrijirea dentară la domiciliu.",
     },
     {
       icon: "HeartPulse",
-      title: "Emergency Care",
-      description: "Help when you need it most",
+      title: "Îngrijire de Urgență",
+      description: "Ajutor atunci când ai nevoie cel mai mult",
       content:
-        "Urgent care services during regular business hours for sudden illnesses or injuries. We also coordinate with local emergency hospitals for after-hours care.",
+        "Servicii de îngrijire urgentă în timpul programului de lucru pentru patologii sau leziuni neașteptate. De asemenea, colaborăm cu spitale de urgență locale pentru îngrijire după orele de program.",
     },
     {
       icon: "Pill",
-      title: "Pharmacy",
-      description: "Medications and supplements",
+      title: "Farmacie veterinara",
+      description: "Medicamente și suplimente",
       content:
-        "In-house pharmacy stocked with medications, prescription diets, and supplements to treat a variety of conditions. We also offer online prescription refills for your convenience.",
+        "Farmacie internă bine aprovizionată cu medicamente, diete pe bază de prescripție medicală și suplimente pentru tratarea diverselor afecțiuni. Oferim și reînnoirea prescripțiilor online pentru confortul tău.",
     },
-    {
-      icon: "X",
-      title: "Radiology",
-      description: "Digital imaging technology",
-      content:
-        "Digital X-rays provide clear images with less radiation exposure, allowing us to diagnose conditions affecting the bones, chest, and abdomen. Results are available within minutes.",
-    },
+    
   ],
   speciesSpecific: {
-    title: "Species-Specific Care",
-    description: "We provide specialized care for different types of pets",
+    title: "Îngrijire specifică fiecărui tip de animal",
+    description: "Oferim îngrijire specializată pentru diferite tipuri de animale de companie.",
     species: [
       {
         icon: "Dog",
-        name: "Dogs",
-        description: "Comprehensive care for dogs of all breeds and ages, from puppies to seniors.",
+        name: "Câini",
+        description: "Îngrijire completă pentru câini de toate rasele și vârstele, de la căței tineri la seniori.",
       },
       {
         icon: "Cat",
-        name: "Cats",
-        description: "Specialized feline medicine in a cat-friendly environment to reduce stress.",
-      },
-      {
-        icon: "Rabbit",
-        name: "Small Mammals",
-        description: "Expert care for rabbits, guinea pigs, hamsters, ferrets, and other small pets.",
-      },
-      {
-        icon: "Bird",
-        name: "Birds & Exotics",
-        description: "Specialized care for birds, reptiles, and other exotic pets.",
-      },
+        name: "Pisici",
+        description: "Medicină veterinară specializată pentru pisici, într-un mediu prietenos cu ele, pentru a reduce stresul.",
+      },     
     ],
   },
 }
-

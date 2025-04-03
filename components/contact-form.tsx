@@ -15,19 +15,19 @@ import { toast } from "@/hooks/use-toast"
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Numele trebuie sa contina minim 2 caractere.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Introduceti o adresa de email valida.",
   }),
   phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
+    message: "Introduceti un numar de telefon valid.",
   }),
   subject: z.string().min(1, {
-    message: "Please select a subject.",
+    message: "Alegeti o categorie.",
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Mesajul trebuie sa contina minim 10 caractere.",
   }),
 })
 
@@ -57,16 +57,16 @@ export default function ContactForm() {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       toast({
-        title: "Message Sent",
-        description: "Thank you for contacting us. We'll respond shortly.",
+        title: "Am primit mesajul dumneavoastra",
+        description: "Multumim pentru mesaj! Va vom contacta in curand.",
       })
 
       // Reset form
       form.reset()
     } catch (error) {
       toast({
-        title: "Something went wrong",
-        description: "Your message failed to send. Please try again.",
+        title: "Ceva nu a mers bine",
+        description: "Nu am reusit sa primim mesajul dumneavoastra. Incercati din nou mai tarziu.",
         variant: "destructive",
       })
     } finally {
@@ -82,9 +82,9 @@ export default function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your Name</FormLabel>
+              <FormLabel>Nume</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="Stapanul lui Grivei" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -111,9 +111,9 @@ export default function ContactForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>Telefon</FormLabel>
                 <FormControl>
-                  <Input placeholder="(555) 123-4567" {...field} />
+                  <Input placeholder="+40 743 123 456" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -126,7 +126,7 @@ export default function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Subject</FormLabel>
+              <FormLabel>Subiect</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
@@ -134,11 +134,11 @@ export default function ContactForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="general">General Inquiry</SelectItem>
-                  <SelectItem value="appointment">Appointment Question</SelectItem>
-                  <SelectItem value="services">Services Information</SelectItem>
-                  <SelectItem value="feedback">Feedback</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="general">Intrebari generale</SelectItem>
+                  <SelectItem value="appointment">Intrebari despre programari</SelectItem>
+                  <SelectItem value="services">Servicii</SelectItem>
+                  <SelectItem value="feedback">Sugestii si reclamatii</SelectItem>
+                  <SelectItem value="other">Altele</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -151,9 +151,9 @@ export default function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Mesaj</FormLabel>
               <FormControl>
-                <Textarea placeholder="How can we help you?" className="min-h-[120px]" {...field} />
+                <Textarea placeholder="Cum va putem ajuta?" className="min-h-[120px]" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -164,10 +164,10 @@ export default function ContactForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
+              Se trimite mesajul...
             </>
           ) : (
-            "Send Message"
+            "Trimite mesajul"
           )}
         </Button>
       </form>

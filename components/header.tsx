@@ -49,7 +49,7 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild>
-            <Link href="/booking">Book Appointment</Link>
+            <Link href="/booking">Fă o programare</Link>
           </Button>
         </div>
       </nav>
@@ -95,7 +95,7 @@ export default function Header() {
                 <div className="py-6">
                   <Button asChild className="w-full">
                     <Link href="/booking" onClick={() => setMobileMenuOpen(false)}>
-                      Book Appointment
+                      Programare
                     </Link>
                   </Button>
                 </div>
