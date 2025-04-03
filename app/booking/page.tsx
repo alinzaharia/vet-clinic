@@ -24,12 +24,13 @@ export default function BookingPage() {
           <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
             <li>
               Pentru urgente, asteptam telefonul dumneavoastra la{" "}
-              <Link href={`tel:${siteInfo.emergencyPhone}`} className="hover:text-primary">{siteInfo.emergencyPhone}</Link>
+              <Link href={`tel:${siteInfo.emergencyPhone}`} className="hover:text-primary">{siteInfo.emergencyPhone}</Link>, 
+              <Link href={`tel:${siteInfo.emergencyPhone}`} className="hover:text-primary">{siteInfo.phone}</Link>.
             </li>
-            <li>Va rugam sa ajungeti cu 10 minute inainte de ora programarii</li>
-            <li>Aduceti carnetul animalutului si alte documente medicale daca e prima vizita</li>
-            <li>Pentru siguranta lor, cainii trebuiesc tinuti in lesa iar pisicile in custi de transport</li>
-            <li>Formularul nu reprezinta confirmarea programarii, vom confirma programarea telefonic in maxim 24h</li>
+            <li>Va rugam sa ajungeti cu 10 minute inainte de ora programarii.</li>
+            <li>Aduceti carnetul animalutului si alte documente medicale daca e prima vizita.</li>
+            <li>Pentru siguranta lor, cainii trebuiesc tinuti in lesa iar pisicile in custi de transport.</li>
+            <li>Formularul nu reprezinta confirmarea programarii, vom confirma programarea telefonic in maxim 24h.</li>
           </ul>
         </div>
         <BookingForm />

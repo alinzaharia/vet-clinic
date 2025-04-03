@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="space-y-8 md:w-1/2 lg:w-1/3">
           <h3 className="text-lg font-semibold">{siteInfo.name}</h3>
           <p className="text-sm text-muted-foreground">
-               Oferim îngrijire veterinară cu dedicare din 2005, pentru sănătatea și fericirea animalului tău.
+               Oferim îngrijire veterinară cu dedicare din 2024, pentru sănătatea și fericirea animalului tău.
           </p>
           <div className="flex space-x-6">
             {/* <Link href={siteInfo.socialMedia.facebook} className="text-muted-foreground hover:text-primary">
@@ -83,7 +83,8 @@ export default function Footer() {
             <ul role="list" className="mt-4 space-y-2">
               <li className="text-sm text-muted-foreground">Șoseaua Fundeni 168, București</li>
               <li className="text-sm text-muted-foreground">
-                Telefon: <Link href={`tel:${siteInfo.phone}`} className="hover:text-primary">{siteInfo.phone}</Link>
+                Telefon: <br /><Link href={`tel:${siteInfo.phone}`} className="hover:text-primary">{siteInfo.phone}</Link> <br />
+                <Link href={`tel:${siteInfo.emergencyPhone}`} className="hover:text-primary"> {siteInfo.emergencyPhone}</Link>
               </li>
               <li className="text-sm text-muted-foreground">Email: {siteInfo.email}</li>
               <li className="text-sm text-muted-foreground">{siteInfo.hours.weekdays} <br /> {siteInfo.hours.saturday} <br /> {siteInfo.hours.sunday}</li>

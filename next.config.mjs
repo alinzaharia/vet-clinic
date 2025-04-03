@@ -15,6 +15,8 @@ const nextConfig = {
   },
   images: {
     unoptimized: true, // Required for static export if using the Next.js Image component
+    loader: "imgix",
+    path: "/vet-clinic/"
   },
   output: 'export', // Enables static export for GitHub Pages
   basePath: "/vet-clinic", // Required for GitHub Pages deployment
