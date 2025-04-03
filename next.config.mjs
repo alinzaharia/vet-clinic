@@ -14,8 +14,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    unoptimized: true, // Required for static export if using the Next.js Image component
   },
+  output: 'export', // Enables static export for GitHub Pages
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
