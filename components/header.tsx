@@ -21,7 +21,13 @@ export default function Header() {
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{siteInfo.name}</span>
             <div className="flex items-center gap-2">
-              <Image src={`${basePath}/logo.png`}width={40} height={40} alt="BB Vet Logo" className="h-10 w-auto" />
+              <Image
+                src={`${basePath}/logo.png`} // Ensure the logo has a transparent background
+                width={100} // Adjusted size
+                height={100}
+                alt="BB Vet Logo"
+                className="h-22 w-22 rounded-full object-cover" // Makes the image circular
+              />
               <span className="font-semibold text-lg hidden sm:inline-block">{siteInfo.shortName}</span>
             </div>
           </Link>
@@ -41,9 +47,8 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-semibold leading-6 ${
-                pathname === item.href ? "text-primary font-bold" : "text-foreground hover:text-primary"
-              }`}
+              className={`text-sm font-semibold leading-6 ${pathname === item.href ? "text-primary font-bold" : "text-foreground hover:text-primary"
+                }`}
             >
               {item.name}
             </Link>
@@ -85,9 +90,8 @@ export default function Header() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${
-                        pathname === item.href ? "text-primary font-bold" : "text-foreground hover:text-primary"
-                      }`}
+                      className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 ${pathname === item.href ? "text-primary font-bold" : "text-foreground hover:text-primary"
+                        }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}

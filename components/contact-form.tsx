@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Loader2 } from "lucide-react"
+import ReCAPTCHA from "react-google-recaptcha"
 
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
@@ -12,7 +13,9 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "@/hooks/use-toast"
+import emailjs from "emailjs-com"
 
+// Validation schema
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Numele trebuie sa contina minim 2 caractere.",
@@ -33,6 +36,12 @@ const formSchema = z.object({
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "") // Use the public key from the environment variable
+  }, [])
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,31 +55,56 @@ export default function ContactForm() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    // console.log("Form submitted with values:", values) // Debug log
+
+    if (!captchaToken) {
+      // console.log("Captcha token is missing") // Debug log
+      toast({
+        title: "Captcha invalid",
+        description: "Va rugam sa completati captcha pentru a trimite formularul.",
+        variant: "destructive",
+      })
+      return
+    }
+
     setIsSubmitting(true)
+    // console.log("Submitting form...") // Debug log
 
     try {
-      // In a real application, you would send this data to your backend
-      // For this example, we'll simulate a successful submission
-      console.log(values)
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "", // Use the service ID from the environment variable
+        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID || "", // Use the template ID from the environment variable
+        {
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          subject: values.subject,
+          message: values.message,
+        }
+      )
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // console.log("EmailJS response:", response) // Debug log
 
-      toast({
-        title: "Am primit mesajul dumneavoastra",
-        description: "Multumim pentru mesaj! Va vom contacta in curand.",
-      })
-
-      // Reset form
-      form.reset()
+      if (response.status === 200) {
+        toast({
+          title: "Am primit mesajul dumneavoastra",
+          description: "Multumim pentru mesaj! Va vom contacta in curand.",
+        })
+        form.reset()
+        setCaptchaToken(null) // Reset the captcha token
+      } else {
+        throw new Error("Email sending failed")
+      }
     } catch (error) {
+      // console.error("Error sending email:", error) // Debug log
       toast({
         title: "Ceva nu a mers bine",
-        description: "Nu am reusit sa primim mesajul dumneavoastra. Incercati din nou mai tarziu.",
+        description: "Nu am reusit sa trimitem mesajul dumneavoastra. Incercati din nou mai tarziu.",
         variant: "destructive",
       })
     } finally {
       setIsSubmitting(false)
+      // console.log("Form submission completed") // Debug log
     }
   }
 
@@ -159,6 +193,21 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
+
+        {/* Google reCAPTCHA */}
+        <div className="flex justify-center">
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} // Use the site key from the environment variable
+            onChange={(token: string | null) => {
+              // console.log("Captcha token received:", token) // Debug log
+              setCaptchaToken(token)
+            }}
+            onExpired={() => {
+              // console.log("Captcha token expired") // Debug log
+              setCaptchaToken(null)
+            }}
+          />
+        </div>
 
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
