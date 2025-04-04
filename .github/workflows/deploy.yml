@@ -28,6 +28,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # Step 5: Debug GitHub Secrets
+      - name: Debug GitHub Secrets
+        run: |
+          echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY }}"
+          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}"
+          echo "NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID=${{ secrets.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID }}"
+          echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}"  
+
        # Step 5: Build the project
       - name: Build project
         env:
