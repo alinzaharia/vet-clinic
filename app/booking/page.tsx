@@ -4,8 +4,8 @@ import { homePage, siteInfo } from "@/lib/content"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Book an Appointment",
-  description: "Schedule a visit for your pet at PetCare Veterinary Clinic",
+  title: "Fă o programare",
+  description: "Fă o programare online pentru vizita la veterinar."
 }
 
 export default function BookingPage() {

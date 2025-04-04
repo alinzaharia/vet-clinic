@@ -10,8 +10,8 @@ import { contactPage, homePage, siteInfo } from "@/lib/content"
 import { basePath } from "@/next.config.mjs"
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Get in touch with PetCare Veterinary Clinic",
+  title: "Contact",
+  description: "Ia legatura cu noi pentru orice intrebari sau programari.",
 }
 
 export default function ContactPage() {

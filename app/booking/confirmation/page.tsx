@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Appointment Request Confirmed",
-  description: "Your appointment request has been received",
+  title: "Confirmare Programare",
+  description: "Am primit cererea de programare."
 }
 
 export default function ConfirmationPage() {

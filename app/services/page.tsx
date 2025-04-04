@@ -21,8 +21,8 @@ import { homePage, servicesPage } from "@/lib/content"
 import { basePath } from "@/next.config.mjs"
 
 export const metadata: Metadata = {
-  title: "Our Services",
-  description: "Comprehensive veterinary services for all your pet's healthcare needs",
+  title: "Servicii",
+  description: "Servicii veterinare complete pentru toate nevoile de sănătate ale animalului tău de companie.",
 }
 
 export default function ServicesPage() {
@@ -86,16 +86,18 @@ export default function ServicesPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {/* Map through services */}
             {servicesPage.services.map((service, index) => (
-              <Card key={index}>
-                <CardHeader className="pb-2">
-                  {getIcon(service.icon)}
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{service.content}</p>
-                </CardContent>
-              </Card>
+            <Card key={index}>
+            <CardHeader className="pb-2">
+              <div className="flex items-center gap-4">
+                {getIcon(service.icon)}
+                <CardTitle className="text-lg font-semibold">{service.title}</CardTitle>
+              </div>
+              <CardDescription className="mt-2">{service.description}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">{service.content}</p>
+            </CardContent>
+          </Card>
             ))}
           </div>
         </div>

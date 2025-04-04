@@ -201,10 +201,10 @@ export default function BookingForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="dog">Caine</SelectItem>
-                    <SelectItem value="cat">Pisica</SelectItem>
-                    <SelectItem value="bird">Pasare</SelectItem>
-                    <SelectItem value="other">Altul</SelectItem>
+                    <SelectItem value="Caine">Caine</SelectItem>
+                    <SelectItem value="Pisica">Pisica</SelectItem>
+                    <SelectItem value="Pasare">Pasare</SelectItem>
+                    <SelectItem value="Altul">Altul</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -272,12 +272,12 @@ export default function BookingForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="consult">Consult</SelectItem>
-                    <SelectItem value="control">Control periodic</SelectItem>
-                    <SelectItem value="vaccination">Vaccinare</SelectItem>
-                    <SelectItem value="illness">Deparazitare</SelectItem>
-                    <SelectItem value="treatment">Tratament</SelectItem>
-                    <SelectItem value="other">Altul</SelectItem>
+                    <SelectItem value="Consult">Consult</SelectItem>
+                    <SelectItem value="Control periodic">Control periodic</SelectItem>
+                    <SelectItem value="Vaccinare">Vaccinare</SelectItem>
+                    <SelectItem value="Deparazitare">Deparazitare</SelectItem>
+                    <SelectItem value="Tratament">Tratament</SelectItem>
+                    <SelectItem value="Altul">Altul</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />

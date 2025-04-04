@@ -75,15 +75,17 @@ export default function Home() {
             {/* Map through service items */}
             {homePage.services.items.map((service, index) => (
               <Card key={index}>
-                <CardHeader className="pb-2">
+              <CardHeader className="pb-2">
+                <div className="flex items-center gap-4">
                   {getIcon(service.icon)}
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">{service.content}</p>
-                </CardContent>
-              </Card>
+                  <CardTitle className="text-lg font-semibold">{service.title}</CardTitle>
+                </div>
+                <CardDescription className="mt-2">{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">{service.content}</p>
+              </CardContent>
+            </Card>
             ))}
           </div>
           <div className="mt-10 text-center">

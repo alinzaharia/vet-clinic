@@ -11,17 +11,17 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "BB Veterinary Clinic - Cabinet veterinar în București",
-    template: "%s | BB Veterinary Clinic București",
+    default: "BB Veterinary  - Cabinet veterinar în București",
+    template: "%s | BB Veterinary",
   },
-  description: "BB Veterinary Clinic oferă servicii veterinare profesionale în București. Îngrijire de top pentru câini și pisici, vaccinări, tratamente și consultații medicale.",
+  description: "BB Veterinary oferă servicii veterinare profesionale în București. Îngrijire de top pentru câini și pisici, vaccinări, tratamente și consultații medicale.",
   keywords: [
     "cabinet veterinar București", "doctor veterinar", "clinică veterinară",
     "îngrijire animale", "vaccin câini", "vaccin pisici", "deparazitare",
     "consultații veterinare", "urgențe veterinare", "sterilizare animale",
   ],
-  authors: [{ name: "BB Veterinary Clinic București" }],
-  creator: "BB Veterinary Clinic București",
+  authors: [{ name: "BB Veterinary" }],
+  creator: "BB Veterinary",
   // openGraph: {
   //   type: "website",
   //   locale: "ro_RO", // Setat pentru România (Facebook și alte rețele sociale)

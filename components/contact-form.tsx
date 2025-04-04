@@ -168,11 +168,11 @@ export default function ContactForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="general">Intrebari generale</SelectItem>
-                  <SelectItem value="appointment">Intrebari despre programari</SelectItem>
-                  <SelectItem value="services">Servicii</SelectItem>
-                  <SelectItem value="feedback">Sugestii si reclamatii</SelectItem>
-                  <SelectItem value="other">Altele</SelectItem>
+                  <SelectItem value="Intrebari generale">Intrebari generale</SelectItem>
+                  <SelectItem value="Intrebari despre programari">Intrebari despre programari</SelectItem>
+                  <SelectItem value="Servicii">Servicii</SelectItem>
+                  <SelectItem value="Sugestii si reclamatii">Sugestii si reclamatii</SelectItem>
+                  <SelectItem value="Altele">Altele</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
