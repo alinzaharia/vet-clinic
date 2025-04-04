@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Stethoscope, Syringe, Microscope, Heart, Clock, Award } from "lucide-react"
 import { homePage } from "@/lib/content"
+import { basePath } from "@/next.config.mjs" // Import the basePath
+
 
 export default function Home() {
   // Helper function to get the right icon component
@@ -32,7 +34,7 @@ export default function Home() {
       <section className="relative bg-gradient-to-r from-teal-500 to-emerald-500 py-20 md:py-32">
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/hero-background.jpg"
+            src={`${basePath}/hero-background.jpg`}
             alt="Veterinary clinic background"
             fill
             className="object-cover opacity-20"
@@ -130,7 +132,7 @@ export default function Home() {
                     <div className="flex-shrink-0 mr-4">
                       <Image
                         className="h-12 w-12 rounded-full"
-                        src={`/testimonial-${index + 1}.jpg`}
+                        src={`${basePath}/testimonial-${index + 1}.jpg`} // Prepend basePath dynamically
                         alt={testimonial.name}
                         width={48}
                         height={48}

@@ -45,4 +45,5 @@ if (userConfig) {
   }
 }
 
+export const basePath = nextConfig.basePath // Export the basePath for reuse
 export default nextConfig

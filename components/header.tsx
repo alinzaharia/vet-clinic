@@ -7,6 +7,8 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { navigation, siteInfo } from "@/lib/content"
+import { basePath } from "@/next.config.mjs" // Import the basePath
+
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,7 +21,7 @@ export default function Header() {
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">{siteInfo.name}</span>
             <div className="flex items-center gap-2">
-              <Image src="/logo.png" width={40} height={40} alt="PetCare Logo" className="h-10 w-auto" />
+              <Image src={`${basePath}/logo.png`}width={40} height={40} alt="BB Vet Logo" className="h-10 w-auto" />
               <span className="font-semibold text-lg hidden sm:inline-block">{siteInfo.shortName}</span>
             </div>
           </Link>

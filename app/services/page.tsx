@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -17,6 +18,7 @@ import {
   Bird,
 } from "lucide-react"
 import { homePage, servicesPage } from "@/lib/content"
+import { basePath } from "@/next.config.mjs"
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -59,15 +61,24 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-muted py-12 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            {/* Using content from servicesPage.hero */}
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{servicesPage.hero.title}</h1>
-            <p className="mt-6 text-lg text-muted-foreground">{servicesPage.hero.description}</p>
-          </div>
-        </div>
-      </section>
+<section className="relative bg-gradient-to-r from-teal-500 to-emerald-500 py-12 md:py-20">
+  <div className="absolute inset-0 overflow-hidden">
+    <Image
+      src={`${basePath}/hero-background.jpg`} // Background image
+      alt="Veterinary clinic background"
+      fill
+      className="object-cover opacity-20"
+      priority
+    />
+  </div>
+  <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto max-w-2xl text-center">
+      {/* Using content from servicesPage.hero */}
+      <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{servicesPage.hero.title}</h1>
+      <p className="mt-6 text-lg leading-8 text-white">{servicesPage.hero.description}</p>
+    </div>
+  </div>
+</section>
 
       {/* Services Overview */}
       <section className="py-12 md:py-20">
