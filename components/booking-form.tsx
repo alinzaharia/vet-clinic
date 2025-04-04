@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { format } from "date-fns"
 import { CalendarIcon, Loader2 } from "lucide-react"
+import ReCAPTCHA from "react-google-recaptcha"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -16,8 +17,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { toast } from "@/hooks/use-toast"
+import emailjs from "emailjs-com"
 import { cn } from "@/lib/utils"
 
+// Validation schema
 const formSchema = z.object({
   ownerName: z.string().min(2, {
     message: "Numele trebuie sa contina minim 2 caractere.",
@@ -48,7 +51,13 @@ const formSchema = z.object({
 
 export default function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
   const router = useRouter()
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "")
+  }, [])
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -65,26 +74,49 @@ export default function BookingForm() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!captchaToken) {
+      toast({
+        title: "Captcha invalid",
+        description: "Va rugam sa completati captcha pentru a trimite formularul.",
+        variant: "destructive",
+      })
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
-      // In a real application, you would send this data to your backend
-      // For this example, we'll simulate a successful submission
-      console.log(values)
+      // Format the appointment date
+      const formattedDate = format(values.appointmentDate, "PPP")
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Send data to EmailJS
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAILJS_BOOKING_TEMPLATE_ID || "",
+        {
+          ownerName: values.ownerName,
+          email: values.email,
+          phone: values.phone,
+          petName: values.petName,
+          petType: values.petType,
+          petAge: values.petAge,
+          appointmentDate: formattedDate,
+          appointmentType: values.appointmentType,
+          message: values.message || "N/A",
+        }
+      )
 
-      toast({
-        title: "Cererea dumneavoastra a fost primita",
-        description: "Va vom contacta in curand sa confirmam programarea.",
-      })
-
-      // Reset form
-      form.reset()
-
-      // Redirect to confirmation page
-      router.push("/booking/confirmation")
+      if (response.status === 200) {
+        toast({
+          title: "Cererea dumneavoastra a fost primita",
+          description: "Va vom contacta in curand sa confirmam programarea.",
+        })
+        form.reset()
+        setCaptchaToken(null) // Reset the captcha token
+        router.push("/booking/confirmation")
+      } else {
+        throw new Error("Email sending failed")
+      }
     } catch (error) {
       toast({
         title: "Ceva nu a mers",
@@ -133,7 +165,7 @@ export default function BookingForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+                <FormLabel>Telefon</FormLabel>
                 <FormControl>
                   <Input placeholder="+40 743 123 456" {...field} />
                 </FormControl>
@@ -172,7 +204,7 @@ export default function BookingForm() {
                     <SelectItem value="dog">Caine</SelectItem>
                     <SelectItem value="cat">Pisica</SelectItem>
                     <SelectItem value="bird">Pasare</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="other">Altul</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -198,7 +230,7 @@ export default function BookingForm() {
             control={form.control}
             name="appointmentDate"
             render={({ field }) => (
-              <FormItem className="flex flex-col">
+              <FormItem>
                 <FormLabel>Data</FormLabel>
                 <Popover>
                   <PopoverTrigger asChild>
@@ -217,12 +249,7 @@ export default function BookingForm() {
                       mode="single"
                       selected={field.value}
                       onSelect={field.onChange}
-                      disabled={
-                        (date) =>
-                          date < new Date() ||
-                          date.getDay() === 0 || // Sunday
-                          date.getDay() === 6 // Saturday
-                      }
+                      disabled={(date) => date < new Date() || date.getDay() === 0 || date.getDay() === 6}
                       initialFocus
                     />
                   </PopoverContent>
@@ -250,7 +277,7 @@ export default function BookingForm() {
                     <SelectItem value="vaccination">Vaccinare</SelectItem>
                     <SelectItem value="illness">Deparazitare</SelectItem>
                     <SelectItem value="treatment">Tratament</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="other">Altul</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -278,6 +305,15 @@ export default function BookingForm() {
           )}
         />
 
+        {/* Google reCAPTCHA */}
+        <div className="flex justify-center">
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            onChange={(token: string | null) => setCaptchaToken(token)}
+            onExpired={() => setCaptchaToken(null)}
+          />
+        </div>
+
         <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
             <>
@@ -292,4 +328,3 @@ export default function BookingForm() {
     </Form>
   )
 }
-

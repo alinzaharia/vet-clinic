@@ -70,7 +70,13 @@ export default function Header() {
               <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
                 <span className="sr-only">{siteInfo.name}</span>
                 <div className="flex items-center gap-2">
-                  <Image src="/logo.png" width={40} height={40} alt="PetCare Logo" className="h-10 w-auto" />
+                  <Image
+                    src={`${basePath}/logo.png`}
+                    width={40}
+                    height={40}
+                    alt="BB Vet Logo"
+                    className="h-10 w-auto rounded-full object-cover"
+                  />
                   <span className="font-semibold text-lg">{siteInfo.shortName}</span>
                 </div>
               </Link>
@@ -113,4 +119,3 @@ export default function Header() {
     </header>
   )
 }
-
