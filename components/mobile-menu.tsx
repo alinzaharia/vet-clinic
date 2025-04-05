@@ -70,11 +70,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <div className="flex items-center gap-2">
               {/* <Image src="/logo.png" width={40} height={40} alt="PetCare Logo" className="h-10 w-auto" /> */}
               <Image
-                src={`${basePath}/logo.png`} // Ensure the logo has a transparent background
+                src={`${basePath}/logoinitial@2x.png`} // Ensure the logo has a transparent background
                 width={100} // Adjusted size
                 height={100}
                 alt="BB Vet Logo"
-                className="h-22 w-22 rounded-full object-cover" // Makes the image circular
+                className="h-20 w-20 rounded-full object-cover" // Makes the image circular
               />
               <span className="font-semibold text-lg">{siteInfo.shortName}</span>
             </div>

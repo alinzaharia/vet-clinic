@@ -23,11 +23,11 @@ export default function Header() {
               <span className="sr-only">{siteInfo.name}</span>
               <div className="flex items-center gap-2">
               <Image
-                src={`${basePath}/logo.png`} // Ensure the logo has a transparent background
+                src={`${basePath}/logoinitial@2x.png`} // Ensure the logo has a transparent background
                 width={100} // Adjusted size
                 height={100}
                 alt="BB Vet Logo"
-                className="h-22 w-22 rounded-full object-cover" // Makes the image circular
+                className="h-20 w-20 rounded-full object-cover" // Makes the image circular
               />
                 <span className="font-semibold text-lg hidden sm:inline-block">{siteInfo.shortName}</span>
               </div>
