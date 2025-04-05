@@ -1,12 +1,13 @@
 {
-  "name": "my-v0-project",
+  "name": "bbvet-project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "@hookform/resolvers": "latest",
@@ -62,6 +63,7 @@
     "zod": "latest"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
